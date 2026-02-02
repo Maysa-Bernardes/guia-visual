@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Visual: Purificadores Black Edition</title>
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #007bff; /* Azul Tech */
+            --gold: #ffc107; /* Para Classe A */
+            --danger: #dc3545;
+            --success: #28a745;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --bg-light: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            min-height: 800px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 1px; }
+        header p { margin-top: 10px; opacity: 0.8; font-size: 1.1rem; }
+
+        /* Navigation */
+        .tabs {
+            display: flex;
+            background: #222;
+            overflow-x: auto;
+            padding: 0;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 18px 10px;
+            border: none;
+            background: #222;
+            color: #aaa;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            min-width: 140px;
+            text-transform: uppercase;
+            border-bottom: 4px solid transparent;
+        }
+
+        .tab-button:hover {
+            background: #333;
+            color: white;
+        }
+
+        .tab-button.active {
+            background: #fff;
+            color: #000;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        /* Content Areas */
+        .tab-content {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- SECTION 1: EDUCACIONAL --- */
+        .journey-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .journey-step {
+            flex: 1;
+            min-width: 250px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            color: #e0e0e0;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+        }
+
+        .tech-box {
+            background: #111;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .class-meter {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            background: #eee;
+            border-radius: 50px;
+            height: 40px;
+            position: relative;
+        }
+
+        .class-badge {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            transition: width 1s;
+        }
+
+        .badge-a { background: linear-gradient(90deg, #ffd700, #ffaa00); border-radius: 50px 0 0 50px; }
+        .badge-c { background: #999; border-radius: 0 50px 50px 0; }
+
+        /* --- PRODUCT PAGES --- */
+        .product-layout {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .product-visual {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .black-product-image {
+            background: radial-gradient(circle at 30% 30%, #444, #000);
+            height: 400px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img-tag {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .spec-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .spec-item strong { display: block; color: var(--accent); margin-bottom: 5px; }
+
+        /* --- COMPARISON TABLE --- */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) { background-color: #f2f2f2; }
+
+        /* Status Pills */
+        .pill {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+        }
+        .p-green { background-color: var(--success); }
+        .p-red { background-color: var(--danger); }
+        .p-orange { background-color: #fd7e14; }
+        .p-blue { background-color: var(--accent); }
+        .p-gold { background-color: #d4af37; color: black; }
+
+        /* --- VERDICT & PROS/CONS --- */
+        .decoder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .decoder-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .decoder-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .verdict-box {
+            background: #e8f4fd;
+            border-left: 6px solid var(--accent);
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .translation-item {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 3px solid #ccc;
+        }
+        .translation-tech { font-size: 0.85rem; color: #666; font-style: italic; }
+        .translation-real { font-weight: bold; color: #333; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>GUIA DE PURIFICADORES BLACK</h1>
+        <p>Decodificando a tecnologia para sua casa</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'ciencia')">1. A Ciência da Água</button>
+        <button class="tab-button" onclick="openTab(event, 'electrolux')">Electrolux PE12P</button>
+        <button class="tab-button" onclick="openTab(event, 'ibbl')">IBBL FR600</button>
+        <button class="tab-button" onclick="openTab(event, 'soft')">Soft Star New</button>
+        <button class="tab-button" onclick="openTab(event, 'consul')">Consul CPB36AF</button>
+        <button class="tab-button" onclick="openTab(event, 'comparativo')">⚔️ Batalha de Gigantes</button>
+        <button class="tab-button" onclick="openTab(event, 'veredito')">⚖️ Veredito</button>
+    </div>
+
+    <!-- ABA 1: A CIÊNCIA DA ÁGUA -->
+    <div id="ciencia" class="tab-content active">
+        <h2 style="border-bottom: 2px solid var(--primary); padding-bottom: 10px;">O Caminho da Água</h2>
+        <p>Imagine a jornada da água entrando no aparelho. Ela passa por uma "corrida de obstáculos" projetada para reter impurezas.</p>
+
+        <div class="journey-container">
+            <div class="journey-step">
+                <span class="step-number">01</span>
+                <h3>🧱 A Barreira Física</h3>
+                <p><strong>Analogia: O Porteiro de Boate</strong></p>
+                <p>A primeira camada (Polipropileno) é como um algodão prensado. Ela barra penetras visíveis: areia, barro, ferrugem e limo dos canos.</p>
+            </div>
+            <div class="journey-step">
+                <span class="step-number">02</span>
+                <h3>🧲 A Tecnologia Invisível</h3>
+                <p><strong>Analogia: O Ímã Químico</strong></p>
+                <p>O Carvão Ativado é cheio de poros microscópicos. Ele age como um ímã, atraindo e prendendo o Cloro, gostos e cheiros ruins.</p>
+            </div>
+            <div class="journey-step">
+                <span class="step-number">03</span>
+                <h3>🦠 O Campo de Batalha (Opcional)</h3>
+                <p><strong>Analogia: O Franco-Atirador</strong></p>
+                <p>Em filtros com "Eficiência Bacteriológica" (Classe A ou IBBL C+3), uma membrana especial elimina 99% das bactérias. Em filtros comuns, essa fase apenas impede que elas se multipliquem.</p>
+            </div>
+        </div>
+
+        <div class="tech-box">
+            <h3>Entendendo as Classes (A vs. C)</h3>
+            <p>O Inmetro classifica os filtros de A (Melhor) a F (Pior) na retenção de partículas.</p>
+            
+            <div class="class-meter">
+                <div class="class-badge badge-a">CLASSE A (Consul CPB36AF)</div>
+                <div class="class-badge badge-c">CLASSE C (Maioria dos filtros comuns)</div>
+            </div>
+            <p>👉 <strong>Classe A:</strong> Retém partículas menores que 1 mícron (60x menor que um grão de areia). Filtra tudo.<br>
+            👉 <strong>Classe C:</strong> Retém de 5 a 15 mícrons. Segura o barro visível, mas partículas microscópicas passam.</p>
+        </div>
+    </div>
+
+    <!-- ABA 2: ELECTROLUX -->
+    <div id="electrolux" class="tab-content">
+        <div class="product-layout">
+            <div class="product-visual">
+                <div class="black-product-image">
+                                      <p style="margin-top:10px; font-size:0.8em; color:#ccc;">Design Slim e Painel Touch</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>Electrolux PE12P Experience Pure 4x</h2>
+                <p>O purificador digital focado em estética e tecnologia para espaços pequenos.</p>
+                
+                <div class="spec-grid">
+                    <div class="spec-item"><strong>Refrigeração</strong>Eletrônica (Lenta)</div>
+                    <div class="spec-item"><strong>Reservatório</strong>0,8 Litros (Pequeno)</div>
+                    <div class="spec-item"><strong>Pressão Baixa</strong>Excelente ⭐</div>
+                    <div class="spec-item"><strong>Filtro</strong>Classe C</div>
+                </div>
+
+                <h3>Destaques Técnicos:</h3>
+                <ul>
+                    <li><strong>Tecnologia Powerjet:</strong> Possui um pressurizador interno. Se sua água da rua é "um fiozinho", ele força a água a sair rápido.</li>
+                    <li><strong>Painel Touch:</strong> Seleção de água gelada, fria ou natural com um toque.</li>
+                    <li><strong>Alerta de Troca:</strong> Uma luz avisa quando o filtro venceu.</li>
+                </ul>
+
+                <div class="verdict-box" style="border-color: var(--danger); background: #fff5f5;">
+                    ⚠️ <strong>Atenção:</strong> Como a refrigeração é por placa eletrônica, ele demora a gelar. Ideal para 1 ou 2 pessoas. Se acabar a luz, <strong>não sai água</strong>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABA 3: IBBL -->
+    <div id="ibbl" class="tab-content">
+        <div class="product-layout">
+            <div class="product-visual">
+                <div class="black-product-image">
+                                        <p style="margin-top:10px; font-size:0.8em; color:#ccc;">Torneiras Robustas e Easy Clean</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>IBBL FR600 Exclusive</h2>
+                <p>O "tanque de guerra" higiênico. Equilíbrio perfeito entre durabilidade e facilidade de uso.</p>
+                
+                <div class="spec-grid">
+                    <div class="spec-item"><strong>Refrigeração</strong>Compressor (Rápida)</div>
+                    <div class="spec-item"><strong>Reservatório</strong>2,18 Litros (Grande)</div>
+                    <div class="spec-item"><strong>Higiene</strong>Nanotecnologia</div>
+                    <div class="spec-item"><strong>Filtro</strong>Classe C (Evoluível)</div>
+                </div>
+
+                <h3>Destaques Técnicos:</h3>
+                <ul>
+                    <li><strong>Troca Fácil (Girou, Trocou):</strong> Você troca o refil na frente do aparelho em 10 segundos, sem fechar o registro.</li>
+                    <li><strong>Upgrade Possível:</strong> Vem com filtro Classe C, mas aceita o refil "Pure A+1" (Classe A) se você quiser melhorar a água depois.</li>
+                    <li><strong>Nanotecnologia:</strong> O reservatório tem proteção antimicrobiana para a água não criar limo se ficar parada.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABA 4: SOFT -->
+    <div id="soft" class="tab-content">
+        <div class="product-layout">
+            <div class="product-visual">
+                <div class="black-product-image">
+                                        <p style="margin-top:10px; font-size:0.8em; color:#ccc;">Design Clássico e Corpo Robusto</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>Soft Star New Black</h2>
+                <p>A referência nacional em água gelada. Feito para aguentar o verão brasileiro.</p>
+                
+                <div class="spec-grid">
+                    <div class="spec-item"><strong>Refrigeração</strong>Compressor (Muito Rápida)</div>
+                    <div class="spec-item"><strong>Reservatório</strong>2,0 Litros (Hermético)</div>
+                    <div class="spec-item"><strong>Capacidade</strong>15 pessoas/hora</div>
+                    <div class="spec-item"><strong>Filtro</strong>Classe C</div>
+                </div>
+
+                <h3>Destaques Técnicos:</h3>
+                <ul>
+                    <li><strong>Volume Industrial:</strong> Projetado para clínicas e escritórios. Uma família de 5 pessoas não consegue esgotar a água gelada dele.</li>
+                    <li><strong>Durabilidade:</strong> Construção interna robusta que costuma durar mais de 10 anos.</li>
+                    <li><strong>Sem Energia:</strong> Funciona perfeitamente (água natural) se acabar a luz.</li>
+                </ul>
+
+                <div class="verdict-box" style="border-color: var(--danger); background: #fff5f5;">
+                    ⚠️ <strong>Contra:</strong> A troca de refil é difícil. É necessário desparafusar a lateral ou chamar um técnico.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABA 5: CONSUL -->
+    <div id="consul" class="tab-content">
+        <div class="product-layout">
+            <div class="product-visual">
+                <div class="black-product-image" style="background: radial-gradient(circle at 30% 30%, #555, #222);">
+                                        <p style="margin-top:10px; font-size:0.8em; color:#ccc;">Cor Titanium (Cinza Escuro)</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>Consul CPB36AF Titanium</h2>
+                <p>A elite da pureza. O único que une refrigeração potente com filtragem máxima de fábrica.</p>
+                
+                <div class="spec-grid">
+                    <div class="spec-item"><strong>Refrigeração</strong>Compressor (Rápida)</div>
+                    <div class="spec-item"><strong>Reservatório</strong>1,5 Litros (Médio)</div>
+                    <div class="spec-item"><strong>Pureza</strong>Classe A (Máxima) 🏆</div>
+                    <div class="spec-item"><strong>Bactérias</strong>Elimina 99%</div>
+                </div>
+
+                <h3>Destaques Técnicos:</h3>
+                <ul>
+                    <li><strong>Classe A de Série:</strong> Único da lista que já vem de fábrica retendo as menores partículas possíveis.</li>
+                    <li><strong>Eficiência Bacteriológica:</strong> Aprovado pelo Inmetro para eliminação de bactérias.</li>
+                    <li><strong>Troca Simples:</strong> Sistema de troca de refil facilitado com aviso luminoso.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABA 6: COMPARATIVO -->
+    <div id="comparativo" class="tab-content">
+        <h2 style="text-align: center;">⚔️ Batalha de Gigantes</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro</th>
+                        <th>Electrolux PE12P</th>
+                        <th>IBBL FR600 Exclusive</th>
+                        <th>Soft Star New</th>
+                        <th>Consul CPB36AF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Refrigeração</strong></td>
+                        <td><span class="pill p-red">Eletrônica (Lenta)</span></td>
+                        <td><span class="pill p-blue">Compressor</span></td>
+                        <td><span class="pill p-blue">Compressor (Potente)</span></td>
+                        <td><span class="pill p-blue">Compressor</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Voltagem</strong></td>
+                        <td><span class="pill p-green">Bivolt</span></td>
+                        <td>110v ou 220v</td>
+                        <td>110v ou 220v</td>
+                        <td>110v ou 220v</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Efic. Filtragem</strong></td>
+                        <td>Classe C</td>
+                        <td>Classe C (Bact.)</td>
+                        <td>Classe C</td>
+                        <td><span class="pill p-gold">Classe A (Bact.)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reservatório</strong></td>
+                        <td>0,8 Litros</td>
+                        <td>2,18 Litros</td>
+                        <td>2,0 Litros</td>
+                        <td>1,5 Litros</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tamanho (AxLxP)</strong></td>
+                        <td>34x16x42 cm (Slim)</td>
+                        <td>41x31x35 cm</td>
+                        <td>39x30x37 cm</td>
+                        <td>35x25x33 cm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custo Refil</strong></td>
+                        <td>R$ 80,00</td>
+                        <td>R$ 70,00</td>
+                        <td>R$ 120,00</td>
+                        <td>R$ 90,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Melhorar Filtro?</strong></td>
+                        <td>❌ Não</td>
+                        <td>✅ Sim (Pure A+1)</td>
+                        <td>⚠️ Só compatíveis</td>
+                        <td>Já é o melhor</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sem Energia?</strong></td>
+                        <td><span class="pill p-red">Não sai água</span></td>
+                        <td><span class="pill p-green">Sai natural</span></td>
+                        <td><span class="pill p-green">Sai natural</span></td>
+                        <td><span class="pill p-green">Sai natural</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Família 3+</strong></td>
+                        <td>❌ Não atende bem</td>
+                        <td>✅ Atende bem</td>
+                        <td>✅ Atende muito bem</td>
+                        <td>✅ Atende bem</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Baixa Pressão</strong></td>
+                        <td><span class="pill p-green">Excelente (Bomba)</span></td>
+                        <td>Bom</td>
+                        <td>Regular</td>
+                        <td>Bom</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ABA 7: VEREDITO -->
+    <div id="veredito" class="tab-content">
+        <h2>Prós e Contras Decodificados</h2>
+        <p>Traduzindo o "tecniquês" para a vida real.</p>
+        
+        <div class="decoder-grid">
+            <!-- Electrolux -->
+            <div class="decoder-card">
+                <div class="decoder-title">Electrolux PE12P</div>
+                <div class="translation-item">
+                    <div class="translation-tech">Termo: "Pressurizador Interno"</div>
+                    <div class="translation-real">Realidade: Se sua água sai pingando da torneira, este aparelho faz ela sair com jato forte.</div>
+                </div>
+                <div class="translation-item">
+                    <div class="translation-tech">Termo: "Refrigeração Peltier 0,2L/h"</div>
+                    <div class="translation-real">Realidade: Encheu dois copos de água gelada? O terceiro vai beber água morna por 1 hora.</div>
+                </div>
+            </div>
+
+            <!-- Soft -->
+            <div class="decoder-card">
+                <div class="decoder-title">Soft Star New</div>
+                <div class="translation-item">
+                    <div class="translation-tech">Termo: "Reservatório Hermético 2L"</div>
+                    <div class="translation-real">Realidade: Pode vir a família toda almoçar no domingo, ninguém vai ficar sem água gelada.</div>
+                </div>
+                <div class="translation-item">
+                    <div class="translation-tech">Termo: "Troca de Filtro Interna"</div>
+                    <div class="translation-real">Realidade: Chame o marido ou o técnico. É chato de trocar.</div>
+                </div>
+            </div>
+            
+            <!-- IBBL -->
+            <div class="decoder-card">
+                <div class="decoder-title">IBBL FR600 Exclusive</div>
+                <div class="translation-item">
+                    <div class="translation-tech">Termo: "Refil Girou Trocou"</div>
+                    <div class="translation-real">Realidade: Você troca o filtro sozinha(o) antes de terminar de passar o café. Super fácil.</div>
+                </div>
+                 <div class="translation-item">
+                    <div class="translation-tech">Termo: "Upgrade de Filtro"</div>
+                    <div class="translation-real">Realidade: Pode comprar o filtro barato hoje, e quando sobrar dinheiro, colocar o filtro "premium" (Classe A) no mesmo aparelho.</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 40px;">👑 Veredito Final: Qual Comprar?</h2>
+
+        <div class="verdict-box" style="border-color: #000; background-color: #f4f4f4;">
+            <h3>🖤 Para Design e Pouca Pressão (Apartamentos)</h3>
+            <p><strong>Vencedor: Electrolux PE12P.</strong><br>
+            É o único que resolve o problema de água fraca e fica lindo na bancada. Mas lembre-se: é para pouca gente.</p>
+        </div>
+
+        <div class="verdict-box" style="border-color: var(--success); background-color: #e8f8e8;">
+            <h3>👨‍👩‍👧‍👦 O Equilíbrio Racional (Famílias)</h3>
+            <p><strong>Vencedor: IBBL FR600 Exclusive.</strong><br>
+            Custo-benefício imbatível. Gela rápido, é higiênico e fácil de manter. A opção de melhorar o filtro depois é um grande trunfo.</p>
+        </div>
+
+        <div class="verdict-box" style="border-color: var(--gold); background-color: #fffbea;">
+            <h3>💎 Saúde em Primeiro Lugar</h3>
+            <p><strong>Vencedor: Consul CPB36AF.</strong><br>
+            Se você tem crianças ou idosos em casa e exige a água mais pura possível sem ter trabalho de procurar peças extras, vá de Consul.</p>
+        </div>
+
+        <div class="verdict-box" style="border-color: var(--accent); background-color: #e6f0ff;">
+            <h3>🏢 Volume Máximo (Escritórios/Famílias Grandes)</h3>
+            <p><strong>Vencedor: Soft Star New.</strong><br>
+            O "trator" dos purificadores. Feito para durar e servir água gelada sem parar.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        setTimeout(() => {
+            document.getElementById(tabName).classList.add("active");
+        }, 10);
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>
